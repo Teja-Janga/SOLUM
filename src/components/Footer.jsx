@@ -6,7 +6,7 @@ const Footer = () => (
             © {new Date().getFullYear()} | Developed by <span className="text-blue-500 hover:text-blue-600 cursor-pointer font-bold">Teja Janga - テジャ</span>
         </p>
         <a 
-            href="https://github.com/YOUR_USERNAME/YOUR_REPO" 
+            href="https://github.com/Teja-Janga/SOLUM" 
             target="_blank" 
             rel="noreferrer"
             className="flex items-center gap-2 text-white/70 hover:text-black transition-colors"

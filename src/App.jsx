@@ -154,9 +154,9 @@ function App() {
                     <div className="lg:col-span-2">
                         {/* Production Flow */}
                         <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 h-full">
-                            <div className="flex justify-between items-center mb-8">
-                                <h3 className="text-lg font-bold text-slate-800">Live Production Flow</h3>
-                                <div className="flex gap-2">
+                            <div className="flex justify-between items-center mb-8 sm:flex-col">
+                                <h3 className="text-lg font-bold text-slate-800 mb-2">Live Production Flow</h3>
+                                <div className="flex gap-1 sm:flex-col">
                                     <button onClick={handleReset} className="px-4 py-2 text-xs cursor-pointer font-semibold bg-slate-200 border border-slate-400 rounded-lg">New Board</button>
                                     <button
                                         onClick={exportToCSV}
@@ -191,9 +191,8 @@ function App() {
                             </div>
 
                             {/* Stepper Component*/}
-                            <div className="relative flex justify-between items-start mt-3v">
+                            <div className="relative flex sm:flex-col sm:items-center justify-between items-start mt-3v">
                                 {/* The Line Connector */}
-                                <div className="absolute top-5 left-0 w-full h-1 bg-slate-300 z-0"></div>
 
                                 {FACTORY_STAGES.map((stage, index) => (
                                     <div key={stage.id} className="relative z-10 flex flex-col items-center group flex-1">

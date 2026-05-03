@@ -154,9 +154,9 @@ function App() {
                     <div className="lg:col-span-2">
                         {/* Production Flow */}
                         <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 h-full">
-                            <div className="flex justify-between items-center mb-8 sm:flex-col">
-                                <h3 className="text-lg font-bold text-slate-800 mb-2">Live Production Flow</h3>
-                                <div className="flex gap-1 sm:flex-col">
+                            <div className="flex justify-between items-center mb-8">
+                                <h3 className="text-lg font-bold text-slate-800">Live Production Flow</h3>
+                                <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                                     <button onClick={handleReset} className="px-4 py-2 text-xs cursor-pointer font-semibold bg-slate-200 border border-slate-400 rounded-lg">New Board</button>
                                     <button
                                         onClick={exportToCSV}
@@ -191,28 +191,31 @@ function App() {
                             </div>
 
                             {/* Stepper Component*/}
-                            <div className="relative flex sm:flex-col sm:items-center justify-between items-start mt-3v">
-                                {/* The Line Connector */}
+                            <div className="relative overflow-auto pb-4">
+                                <div className="flex justify-between items-start pt-4 min-w-150 sm:min-w-0">
+                                    {/* The Line Connector */}
+                                    <div className="absolute top-8 left-0 w-full h-1 bg-slate-300 z-0"></div>
 
-                                {FACTORY_STAGES.map((stage, index) => (
-                                    <div key={stage.id} className="relative z-10 flex flex-col items-center group flex-1">
+                                    {FACTORY_STAGES.map((stage, index) => (
+                                        <div key={stage.id} className="relative z-10 flex flex-col items-center group flex-1">
 
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 transition-all duration-500 ${
-                                            index === activeStage 
-                                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-600 scale-125 ring-3 ring-blue-300' 
-                                                : index < activeStage ? 'bg-green-500 text-white' : 'bg-slate-200 text-slate-500'
-                                            }`}>
-                                            {index < activeStage ? '✓' : index + 1}
+                                            <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-3 transition-all duration-500 ${
+                                                index === activeStage 
+                                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-600 scale-125 ring-3 ring-blue-300' 
+                                                    : index < activeStage ? 'bg-green-500 text-white' : 'bg-slate-200 text-slate-500'
+                                                }`}>
+                                                {index < activeStage ? '✓' : index + 1}
+                                            </div>
+
+                                            <span className={`text-sm font-bold text-center ${index <= activeStage ? 'text-slate-800' : "text-slate-400"}`}>
+                                                {stage.label}
+                                            </span>
+                                            <span className="text-xs text-slate-500 max-w-25 text-center mt-1">
+                                                {stage.detail}
+                                            </span>
                                         </div>
-
-                                        <span className={`text-sm font-bold text-center ${index <= activeStage ? 'text-slate-800' : "text-slate-400"}`}>
-                                            {stage.label}
-                                        </span>
-                                        <span className="text-xs text-slate-500 max-w-25 text-center mt-1">
-                                            {stage.detail}
-                                        </span>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </section>
                     </div>
@@ -236,7 +239,7 @@ function App() {
                 box={selectedBox}
                 onClose={() => setSelectedBox(null)}
             />
-            <Footer /> 
+            <Footer />
         </div>
     );
 }

@@ -8,8 +8,8 @@ const WelcomeModal = ({ isOpen, onClose }) => {
             <div className="relative bg-black/60 w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden">
                 
                 {/* Header with Windows-style Close Button */}
-                <div className="flex justify-between items-center bg-slate-950 px-6 py-3 border-b border-slate-700">
-                    <h2 className="text-white/70 font-bold tracking-wider text-lg">SYSTEM INITIALIZED: WELCOME</h2>
+                <div className="flex justify-between text-wrap items-center bg-slate-950 px-6 py-3 border-b border-slate-700">
+                    <h2 className="text-white/70 font-semibold tracking-wider text-lg">SYSTEM INITIALIZED: WELCOME</h2>
                     <button 
                         onClick={onClose}
                         className="text-white hover:bg-red-600 cursor-pointer transition-colors duration-200 p-1 -mr-4 px-3 h-full flex items-center font-bold justify-center"
